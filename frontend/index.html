@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Обработка запроса</title>
+</head>
+
+<body>
+
+	<h1>Обработка запроса с сервера</h1>
+
+	<div id="result"></div>
+
+	<script>
+		// Делаем запрос к серверу
+		fetch('http://localhost:3000/api/data', {
+			mode: 'cors'
+		})
+			.then(response => response.text())
+			.then(text => {
+				// Обрабатываем полученные данные
+				const result = text;
+				console.log(result)
+
+				document.getElementById('result').innerHTML = result;
+			});
+	</script>
+
+</body>
+
+</html>
